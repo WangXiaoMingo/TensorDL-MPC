@@ -38,7 +38,7 @@ pd.set_option('precision', 4) is used.
 In this case, you can comment this out.
 
 ```bash
-pip install scikit-learn  #pip install scikit-learn == 1.2.2
+pip install scikit-learn  #pip install scikit-learn==1.2.2
 pip install pandas==1.3.5
 pip install matplotlib
 pip install openpyxl
@@ -146,7 +146,7 @@ pip install -r requirements.txt
 *   **pip**: Ensure that pip is installed in your Python environment.
 *   **PyCharm**: If you want to use PyCharm, make sure you have installed and opened PyCharm.
 
-# Method 3: Install 
+# Method 3: setup.py Install 
 
 ### **1. Activate Anaconda Virtual Environment**
 
@@ -156,7 +156,7 @@ If you have not already activated an Anaconda virtual environment, please follow
 - Enter the following command to create a new virtual environment (e.g., `TensorDL-MPC_env`) and activate it:
 
 ```bash
-conda create --name TensorDL-MPC_env python=3.9
+conda create --name TensorDL-MPC_env python=3.8
 conda activate TensorDL-MPC_env
 ```
 
@@ -185,7 +185,7 @@ pip install -r requirements.txt
 2. Enter the following command to install the project itself using the `setup.py` file:
 
 ```bash
-python setup.py easy_install
+python setup.py install
 ```
 
 ### **4. Verify Installation**
@@ -193,7 +193,7 @@ python setup.py easy_install
 1. Enter the following command to verify that the `setup.py` has installed the project:
 
 ```bash
-python -c "import tensordlmpc"
+python -c "import src.dlmpc"
 ```
 
 If the command does not produce any errors, it indicates that the project has been installed successfully.
@@ -203,7 +203,7 @@ If the command does not produce any errors, it indicates that the project has be
 1. Enter the following command to run an example script from the project (if available):
 
 ```bash
-python example.py
+python xxx.py
 ```
 
 ### **6. Considerations**
