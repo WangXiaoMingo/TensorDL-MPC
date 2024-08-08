@@ -8,10 +8,10 @@ setup(
     description="A toolbox for deep learning-based nonlinear model predictive control",
     packages=find_packages(),
     install_requires=[
-        "tensorflow",
-        "numpy",
-        "matplotlib",
-        "pandas",
-        "scikit-learn"
+        "tensorflow-gpu==2.9.0",
+        "scikit-learn==1.2.2",
+        "pandas==1.3.5",
+        "openpyxl",
+        "matplotlib"
     ]
 )
