@@ -1,6 +1,6 @@
 # DL-MPC: A toolbox for deep learning-based nonlinear model predictive control
 
-## **1. Overview**
+## 一、 Overview
 
 The TensorDL-MPC toolbox is a Python-based software developed using the TensorFlow framework. It leverages deep learning techniques to enhance the performance of traditional Model Predictive Control (MPC). The toolbox not only provides core functionalities such as model training, simulation testing, and parameter optimization but also offers a user-friendly interface and comprehensive documentation to facilitate efficient development and deployment of advanced control strategies for industrial automation and intelligent manufacturing.
 
@@ -22,7 +22,7 @@ TensorDL-MPC toolbox is suitable for various industrial control scenarios, inclu
 
 - **Autonomous Driving Vehicles**: Conducts path planning and dynamic decision-making in autonomous driving systems.
 
-## 2 Software and Hardware Environment
+## 二、 Software and Hardware Environment
 
 Software Environment (TensorDL-MPC toolbox development and supports the following software environments):
 
@@ -39,32 +39,32 @@ Hardware Environment To achieve optimal performance, TensorDL-MPC toolbox recomm
 - **Storage**: SSD hard drive with at least 256GB of available storage space to ensure sufficient read-write speed and storage capacity.
 - **Graphics Processor**: Recommended to use NVIDIA series graphics cards with at least 4GB of memory, supporting CUDA and cuDNN to accelerate deep learning model training.
 
-# 2. Installation Guide
+## 三、 Installation Guide
 
 This guide walks you through the process of installing the DL_MPC library.
 
-## Method 1: Quick installation
+### Method 1: Quick installation
 
-### 1. Install Anaconda and PyCharm
+#### 1. Install Anaconda and PyCharm
 
 - First, you need to install Anaconda and PyCharm. Follow the installation guides on their respective websites to complete the installation.
 
-### 2. Create an Anaconda Environment
+#### 2. Create an Anaconda Environment
 
-1.  Open Anaconda Prompt.
-2.  Use the following command to create a new virtual environment (e.g., `TensorDL-MPC_env`)(python 3.8+):
+- 1）.  Open Anaconda Prompt.
+- 2）.  Use the following command to create a new virtual environment (e.g., `TensorDL-MPC_env`)(python 3.8+):
 
 ```bash
 conda create --name TensorDL-MPC_env python=3.8
 ```
 
-3.  Activate the virtual environment:
+- 3）.  Activate the virtual environment:
 
 ```bash
 conda activate TensorDL-MPC_env
 ```
 
-### **3. Install Dependencies**
+#### **3. Install Dependencies**
 
 In the activated virtual environment, use the following command to install TensorFlow (2.5+), you can also use: requirements.txt
 
@@ -85,51 +85,51 @@ pip install matplotlib
 pip install openpyxl
 ```
 
-### **4. Create a PyCharm Project**
+#### **4. Create a PyCharm Project**
 
 - Open PyCharm.
 - Click "Create New Project".
 - Select "Python" as the project type.
 - Choose "Existing interpreter" and select your Anaconda virtual environment.
 
-### 5. Clone the Code Repository
+#### 5. download/Clone the Code Repository
 
 In PyCharm, use the Git repository browser to clone the TensorDL-MPC code repository into your project directory.
 ```bash
 https://github.com/WangXiaoMingo/TensorDL-MPC
 ```
 
-### 6. Configure PyCharm
+#### 6. Configure PyCharm
 
 - In PyCharm, go to "File" -> "Settings" (or press Ctrl+Alt+S).
 - Select "Project: TensorDL-MPC" -> "Python Interpreter".
 - In the "Python Interpreter" page, click "Add" to add your Anaconda virtual environment.
 
-### 7. Run the Example
+#### 7. Run the Example
 
 - In PyCharm, find the examples/tests script file (e.g., xxx.py).
 - Right-click on the file and select "Run 'xxx.py'".
 
-### 8. Notes
+#### 8. Notes
 
 *   Virtual Environment: Make sure you select the correct Anaconda virtual environment when creating the PyCharm project.
 *   Dependencies: Make sure you have configured the correct Python interpreter and dependencies in PyCharm.
 
 
 
-# Method 2: Install from scratch
+### Method 2: Install from scratch
 
-### **1. Install Anaconda**
+#### **1. Install Anaconda**
 
 - Visit the [Anaconda website](https://www.anaconda.com/products/distribution) to download the Anaconda installation program.
 - Run the installation program and follow the prompts to install. It is recommended to select the "Just me (local user only)" option to install Anaconda in your user directory.
 
-## **2. Open Command Line**
+#### **2. Open Command Line**
 
 - On Windows, press Win + R, enter `cmd`, and press Enter to open the command line.
 - On macOS or Linux, open the terminal application.
 
-### **3. Create an Anaconda Virtual Environment**
+##### **3. Create an Anaconda Virtual Environment**
 
 - In the command line, enter the following command to create a new virtual environment (e.g., `TensorDL-MPC_env`):
 
@@ -143,7 +143,7 @@ conda create --name TensorDL-MPC_env python=3.8
 conda activate TensorDL-MPC_env
 ```
 
-### **4. Install Dependencies**
+#### **4. Install Dependencies**
 
 In the activated virtual environment, install TensorFlow and NumPy using the following command:
 
@@ -160,7 +160,7 @@ pip install matplotlib
 pip install openpyxl
 ```
 
-### **5. Clone the Code Repository**
+#### **5. Clone the Code Repository**
 
 In the command line, use the following command to clone the TensorDL-MPC code repository into your project directory:
 
@@ -168,7 +168,7 @@ In the command line, use the following command to clone the TensorDL-MPC code re
 git clone https://github.com/WangXiaoMingo/TensorDL-MPC.git
 ```
 
-### **6. Install Project Dependencies**
+#### **6. Install Project Dependencies**
 
 In the TensorDL-MPC code repository directory, use the following command to install project dependencies:
 
@@ -176,20 +176,20 @@ In the TensorDL-MPC code repository directory, use the following command to inst
 pip install -r requirements.txt
 ```
 
-### **7. Run the Example**
+#### **7. Run the Example**
 
 1.  In PyCharm, find the examples/tests script file (e.g., `xxx.py`).
 2.  Right-click on the file and select "Run 'xxx.py'".
 
-### **8. Notes**
+#### **8. Notes**
 
 *   **Virtual Environment**: Make sure you activate the correct Anaconda virtual environment before installing dependencies and running the code.
 *   **pip**: Ensure that pip is installed in your Python environment.
 *   **PyCharm**: If you want to use PyCharm, make sure you have installed and opened PyCharm.
 
-# Method 3: setup.py Install 
+### Method 3: setup.py Install 
 
-### **1. Activate Anaconda Virtual Environment**
+#### **1. Activate Anaconda Virtual Environment**
 
 If you have not already activated an Anaconda virtual environment, please follow these steps:
 
@@ -201,37 +201,37 @@ conda create --name TensorDL-MPC_env python=3.8
 conda activate TensorDL-MPC_env
 ```
 
-### **2. Clone GitHub Repository**
+#### **2. Clone GitHub Repository**
 
-1. In Command Prompt, enter the following command to clone the TensorDL-MPC repository to your local machine:
+- 1）. In Command Prompt, enter the following command to clone the TensorDL-MPC repository to your local machine:
 
 ```bash
 git clone https://github.com/WangXiaoMingo/TensorDL-MPC.git
 ```
 
-2. Switch to the cloned repository directory:
+- 2）. Switch to the cloned repository directory:
 
 ```bash
 cd TensorDL-MPC
 ```
 
-### **3. Install Project Dependencies**
+#### **3. Install Project Dependencies**
 
-1. In the repository directory, enter the following command to install the dependencies listed in the `requirements.txt` file:
+- 1）. In the repository directory, enter the following command to install the dependencies listed in the `requirements.txt` file:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Enter the following command to install the project itself using the `setup.py` file:
+- 2）. Enter the following command to install the project itself using the `setup.py` file:
 
 ```bash
 python setup.py install
 ```
 
-### **4. Verify Installation**
+#### **4. Verify Installation**
 
-1. Enter the following command to verify that the `setup.py` has installed the project:
+ - 1）. Enter the following command to verify that the `setup.py` has installed the project:
 
 ```bash
 python -c "import src.dlmpc"
@@ -239,12 +239,12 @@ python -c "import src.dlmpc"
 
 If the command does not produce any errors, it indicates that the project has been installed successfully.
 
-### **5. Run Examples**
+#### **5. Run Examples**
 
 examples/tests files
 
 
-### **6. Considerations**
+#### **6. Considerations**
 
 - Ensure that you have Anaconda and Python installed.
 - Ensure that pip is installed in your Anaconda environment.
@@ -258,9 +258,9 @@ python -m pip install --upgrade pip
   By following these steps, you should be able to fully install and configure the TensorDL-MPC project from the command line on a Windows environment. If you encounter any problems during the process, make sure you have activated the correct Anaconda virtual environment in your Command Prompt.
 
 
-##  **3. System Architecture**
+##  **四、 System Architecture**
 
-### 3.1 **Main Modules**:
+### 4.1 **Main Modules**:
 
 *   **Model Module**: Contains the code for building and training various deep learning models.
 *   **Controller Module**: Implements the MPC control algorithm, including rolling prediction, cost function calculation, optimization algorithms, etc.
@@ -268,14 +268,14 @@ python -m pip install --upgrade pip
 *   **System Simulation Module**: Contains the code for building and simulating system dynamic models.
 *   **Data Preprocessing Module**: Contains functions for data segmentation, normalization, etc.
 
-### 3.2 **Module Relationships**:
+### 4.2 **Module Relationships**:
 
 - The model module generates prediction models, the controller module uses the prediction models for MPC control, the optimization algorithm module optimizes the control input, the system simulation module simulates system dynamics, and the data preprocessing module preprocesses the data.
 - Modules interact through data transmission, for example, the controller module passes the control input to the system simulation module, and the system simulation module passes the system output to the controller module, etc.
 
-## **4. Technical Details**:
+## **五、Technical Details**:
 
-### **4.1 Deep Learning Models**:
+### **5.1 Deep Learning Models**:
 
 *   BPNet: Multi-layer perceptron, suitable for linear relationships.
 *   GRU: Gated recurrent unit, suitable for sequence prediction.
@@ -283,27 +283,25 @@ python -m pip install --upgrade pip
 *   SeriesLstm, NormLstm, LSTM, ResnetLstm, SkipLstm, ResSkipLstm: LSTM variants, suitable for sequence prediction, and introduce residual connections, skip connections, etc.
 *   ResnetTcm: A model combining residual networks and causal convolutions, suitable for sequence prediction.
 
-### 4.2 **MPC Control Algorithm**:
+### **5.2 MPC Control Algorithm**:
 
 *   Rolling Prediction: Based on the current state and prediction model, stepwise predicts future states and outputs.
 *   Cost Function: Used to measure the difference between predicted output and actual output.
 *   Optimization Algorithm: Used to find the control input that minimizes the cost function.
 
-### **4.3 Optimization Algorithms**:
+### **5.3 Optimization Algorithms**:
 
 *   Non-negative constraints: Ensures that the control input is non-negative.
 *   Boundary constraints: Ensures that the control input is within a specified range.
 
-
-### **4.4 Usage Examples**:
+### **5.4 Usage Examples**:
 
 *   Example code demonstrates how to use TensorDL-MPC for MPC control, including initializing the system, training the model, performing MPC control, simulating system dynamics, etc.
 
 
+#### **5.4.1. Usage Steps**
 
-#### **4.4.1 . Usage Steps**
-
-**1. Data Preprocessing**
+**1）Data Preprocessing**
 
 * **Load Data**: Use the `Dataset` class to generate training data from a simulation system or real data. For example, use the `SimSISO` class to generate training data for a SISO system.
 
@@ -311,7 +309,7 @@ python -m pip install --upgrade pip
 
 * **Data Loading**: Use the `DataLoader` class to split the window data into training sets, validation sets, and test sets.
 
-  **2. Model Training**
+**2）Model Training**
 
 * **Choose Model**: Choose an appropriate deep learning model for training. TensorDL-MPC provides various models, such as BPNet, GRU, LSTM, etc.
 
@@ -320,24 +318,30 @@ python -m pip install --upgrade pip
 * **Model Training**: Use the `TrainModel` class to train the model and pass the training data and validation data to the model.
 
 * **Model Saving**: Save the trained model to a file for later use.
-  **3. MPC Control Process**
+
+**3）MPC Control Process**
 
 * **Initialize System State**: Set the initial system state and control input.
 
 * **Load Model**: Load the trained deep learning model.
 
 * **MPC Control Loop**:
+  
     * Create an MPC controller instance using the `MPCController` class or `DeepLearningMPCController` class.
     * Optimize control input using the MPC controller and obtain the optimized control input sequence.
     * Update the system state based on the optimized control input.
     * Calculate the tracking error and use an online correction algorithm for correction.
     * Repeat the above steps until the specified control cycle is reached or a stopping condition is met.
-    **4. Performance Evaluation**
+      
+**4）Performance Evaluation**
     
 * Use the `calculate_performance_metrics` function to calculate performance metrics of the MPC control process, such as ISE, IAE, overshoot, etc.
 
 * Visualize the results of the MPC control process, such as system output, reference trajectory, and control input.
-**Code Example**
+  
+#### **5.4.2 Code Example**
+
+ 
 The following is an example code using the BPNet model and MPC control:
 ```python
 from dlmpc import SimSISO, WindowGenerator, DataLoader, BPNet, TrainModel
