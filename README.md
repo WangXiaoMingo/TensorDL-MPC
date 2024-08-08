@@ -25,10 +25,10 @@ conda activate TensorDL-MPC_env
 
 ### **3. Install Dependencies**
 
-In the activated virtual environment, use the following command to install TensorFlow (2.5+), you can also use: pip install -r requirements.txt
+In the activated virtual environment, use the following command to install TensorFlow (2.5+), you can also use: requirements.txt
 
 ```bash
-pip install tensorflow-gpu==2.9.0 # pip install -r requirements.txt
+pip install tensorflow-gpu==2.9.0
 ```
 
 If you want to install other dependencies, such as Scikit-learn, use the following command:
@@ -40,8 +40,8 @@ In this case, you can comment this out.
 ```bash
 pip install scikit-learn  #pip install scikit-learn == 1.2.2
 pip install pandas==1.3.5
-pip install openpyxl
 pip install matplotlib
+pip install openpyxl
 ```
 
 ### **4. Create a PyCharm Project**
@@ -107,16 +107,16 @@ conda activate TensorDL-MPC_env
 In the activated virtual environment, install TensorFlow and NumPy using the following command:
 
 ```bash
-pip install tensorflow-gpu==2.9.0 # pip install -r requirements.txt
+pip install tensorflow-gpu==2.9.0
 ```
 
 If you want to install other dependencies, such as Scikit-learn, use the following command:
 
 ```bash
-pip install scikit-learn  #pip install scikit-learn == 1.2.2
+pip install scikit-learn==1.2.2
 pip install pandas==1.3.5
-pip install openpyxl
 pip install matplotlib
+pip install openpyxl
 ```
 
 ### **5. Clone the Code Repository**
