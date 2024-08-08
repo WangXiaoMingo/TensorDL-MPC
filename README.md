@@ -107,7 +107,7 @@ https://github.com/WangXiaoMingo/TensorDL-MPC
 
 ### 7. Run the Example
 
-- In PyCharm, find the example script file (e.g., xxx.py).
+- In PyCharm, find the examples/tests script file (e.g., xxx.py).
 - Right-click on the file and select "Run 'xxx.py'".
 
 ### 8. Notes
@@ -178,7 +178,7 @@ pip install -r requirements.txt
 
 ### **7. Run the Example**
 
-1.  In PyCharm, find the example script file (e.g., `xxx.py`).
+1.  In PyCharm, find the examples/tests script file (e.g., `xxx.py`).
 2.  Right-click on the file and select "Run 'xxx.py'".
 
 ### **8. Notes**
@@ -241,11 +241,8 @@ If the command does not produce any errors, it indicates that the project has be
 
 ### **5. Run Examples**
 
-1. Enter the following command to run an example script from the project (if available):
+examples/tests files
 
-```bash
-python xxx.py
-```
 
 ### **6. Considerations**
 
