@@ -14,7 +14,7 @@ This guide walks you through the process of installing the DL_MPC library.
 2.  Use the following command to create a new virtual environment (e.g., `TensorDL-MPC_env`)(python 3.8+):
 
 ```bash
-conda create --name TensorDL-MPC_env python=3.9
+conda create --name TensorDL-MPC_env python=3.8
 ```
 
 3.  Activate the virtual environment:
@@ -25,16 +25,23 @@ conda activate TensorDL-MPC_env
 
 ### **3. Install Dependencies**
 
-In the activated virtual environment, use the following command to install TensorFlow (2.5+):
+In the activated virtual environment, use the following command to install TensorFlow (2.5+), you can also use: pip install -r requirements.txt
 
 ```bash
-pip install tensorflow-gpu==2.9.0
+pip install tensorflow-gpu==2.9.0 # pip install -r requirements.txt
 ```
 
 If you want to install other dependencies, such as Scikit-learn, use the following command:
+Note:
+If the pandas version is too high, there may be errors, such as the part where 
+pd.set_option('precision', 4) is used. 
+In this case, you can comment this out.
 
 ```bash
-conda install scikit-learn  # pip install -r requirements.txt
+pip install scikit-learn  #pip install scikit-learn == 1.2.2
+pip install pandas==1.3.5
+pip install openpyxl
+pip install matplotlib
 ```
 
 ### **4. Create a PyCharm Project**
@@ -47,6 +54,9 @@ conda install scikit-learn  # pip install -r requirements.txt
 ### 5. Clone the Code Repository
 
 In PyCharm, use the Git repository browser to clone the TensorDL-MPC code repository into your project directory.
+```bash
+https://github.com/WangXiaoMingo/TensorDL-MPC
+```
 
 ### 6. Configure PyCharm
 
@@ -83,7 +93,7 @@ In PyCharm, use the Git repository browser to clone the TensorDL-MPC code reposi
 - In the command line, enter the following command to create a new virtual environment (e.g., `TensorDL-MPC_env`):
 
 ```bash
-conda create --name TensorDL-MPC_env python=3.9
+conda create --name TensorDL-MPC_env python=3.8
 ```
 
 - Activate the virtual environment:
@@ -97,13 +107,16 @@ conda activate TensorDL-MPC_env
 In the activated virtual environment, install TensorFlow and NumPy using the following command:
 
 ```bash
-conda install tensorflow numpy
+pip install tensorflow-gpu==2.9.0 # pip install -r requirements.txt
 ```
 
 If you want to install other dependencies, such as Scikit-learn, use the following command:
 
 ```bash
-conda install scikit-learn
+pip install scikit-learn  #pip install scikit-learn == 1.2.2
+pip install pandas==1.3.5
+pip install openpyxl
+pip install matplotlib
 ```
 
 ### **5. Clone the Code Repository**
@@ -111,7 +124,7 @@ conda install scikit-learn
 In the command line, use the following command to clone the TensorDL-MPC code repository into your project directory:
 
 ```bash
-git clone https://github.com/wangxiaoming1995/TensorDL-MPC.git
+git clone https://github.com/WangXiaoMingo/TensorDL-MPC.git
 ```
 
 ### **6. Install Project Dependencies**
@@ -152,7 +165,7 @@ conda activate TensorDL-MPC_env
 1. In Command Prompt, enter the following command to clone the TensorDL-MPC repository to your local machine:
 
 ```bash
-git clone https://github.com/wangxiaoming1995/TensorDL-MPC.git
+git clone https://github.com/WangXiaoMingo/TensorDL-MPC.git
 ```
 
 2. Switch to the cloned repository directory:
