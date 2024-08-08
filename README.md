@@ -368,12 +368,13 @@ state_y = tf.constant([[1], [1.2]], dtype=tf.float32)
 state_u = tf.constant([[0.1]], dtype=tf.float32)
 u0 = tf.constant([0.2], dtype=tf.float32)
 y_ref = 10
+error=0
 for i in range(50):
-    parameter = mpc_controller.optimize(error=0, state_y=state_y, state_u=state_u, y_ref=y_ref, iterations=100, tol=1e-6)
+    parameter = mpc_controller.optimize(error, state_y=state_y, state_u=state_u, y_ref=y_ref, iterations=100, tol=1e-6)
     u0 = parameter['u0']
     plant_output = plant.plant(np.append(tf.squeeze(state_u), u0), tf.squeeze(state_y))
     state_y, state_u, error = mpc_controller.estimate(u0, plant_output)
-    y_ref = 10 - 2 * i
+
 ```
 **Note**:
 * Please adjust the parameters in the code according to your specific problem, such as model structure, MPC parameters, etc.
