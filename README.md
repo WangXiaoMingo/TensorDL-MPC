@@ -185,7 +185,7 @@ pip install -r requirements.txt
 2. Enter the following command to install the project itself using the `setup.py` file:
 
 ```bash
-python setup.py install
+python setup.py easy_install
 ```
 
 ### **4. Verify Installation**
