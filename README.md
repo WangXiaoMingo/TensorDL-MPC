@@ -11,7 +11,7 @@ This guide walks you through the process of installing the DL_MPC library.
 ### 2. Create an Anaconda Environment
 
 1.  Open Anaconda Prompt.
-2.  Use the following command to create a new virtual environment (e.g., `TensorDL-MPC_env`):
+2.  Use the following command to create a new virtual environment (e.g., `TensorDL-MPC_env`)(python 3.8+):
 
 ```bash
 conda create --name TensorDL-MPC_env python=3.9
@@ -25,10 +25,10 @@ conda activate TensorDL-MPC_env
 
 ### **3. Install Dependencies**
 
-In the activated virtual environment, use the following command to install TensorFlow and NumPy:
+In the activated virtual environment, use the following command to install TensorFlow (2.5+):
 
 ```bash
-conda install tensorflow numpy
+pip install tensorflow-gpu==2.9.0
 ```
 
 If you want to install other dependencies, such as Scikit-learn, use the following command:
