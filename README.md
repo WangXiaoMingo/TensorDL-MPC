@@ -259,3 +259,126 @@ python -m pip install --upgrade pip
 
 - If you encounter any issues during installation, please check your `setup.py` file and `requirements.txt` file to ensure they are correct.
   By following these steps, you should be able to fully install and configure the TensorDL-MPC project from the command line on a Windows environment. If you encounter any problems during the process, make sure you have activated the correct Anaconda virtual environment in your Command Prompt.
+
+
+##  **3. System Architecture**
+
+### 3.1 **Main Modules**:
+
+*   **Model Module**: Contains the code for building and training various deep learning models.
+*   **Controller Module**: Implements the MPC control algorithm, including rolling prediction, cost function calculation, optimization algorithms, etc.
+*   **Optimization Algorithm Module**: Implements various optimization algorithms, such as gradient descent, online correction, etc.
+*   **System Simulation Module**: Contains the code for building and simulating system dynamic models.
+*   **Data Preprocessing Module**: Contains functions for data segmentation, normalization, etc.
+
+### 3.2 **Module Relationships**:
+
+- The model module generates prediction models, the controller module uses the prediction models for MPC control, the optimization algorithm module optimizes the control input, the system simulation module simulates system dynamics, and the data preprocessing module preprocesses the data.
+- Modules interact through data transmission, for example, the controller module passes the control input to the system simulation module, and the system simulation module passes the system output to the controller module, etc.
+
+## **4. Technical Details**:
+
+### **4.1 Deep Learning Models**:
+
+*   BPNet: Multi-layer perceptron, suitable for linear relationships.
+*   GRU: Gated recurrent unit, suitable for sequence prediction.
+*   Linear Regression: Linear regression, suitable for linear relationships.
+*   SeriesLstm, NormLstm, LSTM, ResnetLstm, SkipLstm, ResSkipLstm: LSTM variants, suitable for sequence prediction, and introduce residual connections, skip connections, etc.
+*   ResnetTcm: A model combining residual networks and causal convolutions, suitable for sequence prediction.
+
+### 4.2 **MPC Control Algorithm**:
+
+*   Rolling Prediction: Based on the current state and prediction model, stepwise predicts future states and outputs.
+*   Cost Function: Used to measure the difference between predicted output and actual output.
+*   Optimization Algorithm: Used to find the control input that minimizes the cost function.
+
+### **4.3 Optimization Algorithms**:
+
+*   Non-negative constraints: Ensures that the control input is non-negative.
+*   Boundary constraints: Ensures that the control input is within a specified range.
+
+
+### **4.4 Usage Examples**:
+
+*   Example code demonstrates how to use TensorDL-MPC for MPC control, including initializing the system, training the model, performing MPC control, simulating system dynamics, etc.
+
+
+
+#### **4.4.1 . Usage Steps**
+
+**1. Data Preprocessing**
+
+* **Load Data**: Use the `Dataset` class to generate training data from a simulation system or real data. For example, use the `SimSISO` class to generate training data for a SISO system.
+
+* **Window Generation**: Use the `WindowGenerator` class to split the data into windows, each containing system states, control inputs, and outputs.
+
+* **Data Loading**: Use the `DataLoader` class to split the window data into training sets, validation sets, and test sets.
+
+  **2. Model Training**
+
+* **Choose Model**: Choose an appropriate deep learning model for training. TensorDL-MPC provides various models, such as BPNet, GRU, LSTM, etc.
+
+* **Model Building**: Use the selected model class to build the model and set model parameters, such as the number of hidden layer units, learning rate, etc.
+
+* **Model Training**: Use the `TrainModel` class to train the model and pass the training data and validation data to the model.
+
+* **Model Saving**: Save the trained model to a file for later use.
+  **3. MPC Control Process**
+
+* **Initialize System State**: Set the initial system state and control input.
+
+* **Load Model**: Load the trained deep learning model.
+
+* **MPC Control Loop**:
+    * Create an MPC controller instance using the `MPCController` class or `DeepLearningMPCController` class.
+    * Optimize control input using the MPC controller and obtain the optimized control input sequence.
+    * Update the system state based on the optimized control input.
+    * Calculate the tracking error and use an online correction algorithm for correction.
+    * Repeat the above steps until the specified control cycle is reached or a stopping condition is met.
+    **4. Performance Evaluation**
+    
+* Use the `calculate_performance_metrics` function to calculate performance metrics of the MPC control process, such as ISE, IAE, overshoot, etc.
+
+* Visualize the results of the MPC control process, such as system output, reference trajectory, and control input.
+**Code Example**
+The following is an example code using the BPNet model and MPC control:
+```python
+from dlmpc import SimSISO, WindowGenerator, DataLoader, BPNet, TrainModel
+from dlmpc import DeepLearningMPCController
+# Data Preprocessing
+plant = SimSISO(plant_name='SISO', noise_amplitude=1)
+data = plant.preprocess(num=1000)
+u, y = data['u'], data['y']
+input_window_dy = 2
+input_window_du = 2
+window_generator = WindowGenerator(input_window_dy, input_window_du, u, y, u_dim=1)
+x_sequences, u_sequences, y_sequences = window_generator.generate_3D_sequences()
+loader = DataLoader((x_sequences, u_sequences, y_sequences))
+split_seed = [0.8, 0.1, 0.1]
+(train_data, valid_data, test_data) = loader.load_data(split_seed)
+# Model Training
+my_model = BPNet(hidden_blocks=2)
+model = my_model.build(units=32, dim_u=1, dim_x=input_window_dy + input_window_du - 1, data_type='1D')
+TrainModel(model, lr=0.01, epoch=200).train_model(train_data, valid_data, show_loss=True)
+model.save(f'models_save/{model.name}_predictor.h5')
+# MPC Control
+mpc_controller = DeepLearningMPCController(model, predict_horizon=4, control_horizon=2, Q=np.eye(4) * 0.1, R=np.eye(2) * 0.01, ly=input_window_dy, lu=input_window_du - 1, dim_u=1, du_bounds=[-1, 1], u_bounds=[-5, 5], opt=optimizer(optimizer_name='sgd', learning_rate=0.1))
+state_y = tf.constant([[1], [1.2]], dtype=tf.float32)
+state_u = tf.constant([[0.1]], dtype=tf.float32)
+u0 = tf.constant([0.2], dtype=tf.float32)
+y_ref = 10
+for i in range(50):
+    parameter = mpc_controller.optimize(error=0, state_y=state_y, state_u=state_u, y_ref=y_ref, iterations=100, tol=1e-6)
+    u0 = parameter['u0']
+    plant_output = plant.plant(np.append(tf.squeeze(state_u), u0), tf.squeeze(state_y))
+    state_y, state_u, error = mpc_controller.estimate(u0, plant_output)
+    y_ref = 10 - 2 * i
+```
+**Note**:
+* Please adjust the parameters in the code according to your specific problem, such as model structure, MPC parameters, etc.
+* You can try using other models or MPC control strategies to achieve better control performance.
+* You can use other functions provided by TensorDL-MPC, such as model updating, fault detection, etc., to enhance the robustness and reliability of the MPC control system.
+
+
+
+
