@@ -1,4 +1,45 @@
-# Installation Guide
+# DL-MPC: A toolbox for deep learning-based nonlinear model predictive control
+
+## **1. Overview**
+
+The TensorDL-MPC toolbox is a Python-based software developed using the TensorFlow framework. It leverages deep learning techniques to enhance the performance of traditional Model Predictive Control (MPC). The toolbox not only provides core functionalities such as model training, simulation testing, and parameter optimization but also offers a user-friendly interface and comprehensive documentation to facilitate efficient development and deployment of advanced control strategies for industrial automation and intelligent manufacturing.
+
+TensorDL-MPC: Deep Learning-Driven Model Predictive Control Toolbox features include:
+
+- **Deep Learning Integration**: Supports multiple deep learning models, capable of handling high-dimensional and nonlinear data, improving control accuracy.
+- **Model Predictive Control:** Utilizes advanced MPC algorithms combined with deep learning models to achieve accurate prediction and optimal control of future system states.
+- **User-friendly Interface**: Provides concise and clear APIs for users to quickly get started and customize control strategies.
+- **Simulation and Testing**: Built-in simulation environment allows users to test control strategies in a safe environment and evaluate performance.
+- **Simulation Cases**: Includes multiple simulation cases to help users understand the application and effects of the toolbox.
+- **Documentation and Support**: Provides documentation and technical support to ensure users can fully utilize the toolbox.
+- **Modular Design**: Uses a modular development approach for easy feature expansion and maintenance.
+
+TensorDL-MPC toolbox is suitable for various industrial control scenarios, including but not limited to:
+
+- **Chemical Process Control**: Achieves precise control in chemical reactors, distillation towers, and other chemical equipment.
+- **Manufacturing Process Optimization**: Optimizes production processes on the production line to improve product quality and production efficiency.
+- **Energy Management**: Manages and optimizes energy effectively in power systems, energy distribution networks.
+
+- **Autonomous Driving Vehicles**: Conducts path planning and dynamic decision-making in autonomous driving systems.
+
+## 2 Software and Hardware Environment
+
+Software Environment (TensorDL-MPC toolbox development and supports the following software environments):
+
+- **Operating System**: Windows 10 (64-bit) Professional or higher, Linux (recommended Ubuntu 18.04 LTS and above), macOS (recommended Catalina 10.15 and above).
+- **Programming Language**: Python 3.6 and above, ensuring compatibility with the TensorFlow framework.
+- **Development Framework**: TensorFlow 1.13 and above, for building and training deep learning models.
+- **Development Tools**: Recommended to use Anaconda or Miniconda for environment management, Visual Studio Code or PyCharm as the integrated development environment (IDE).
+- **Other Dependencies**: NumPy, SciPy, Pandas, and other common scientific computing libraries. Specific dependency versions can be found in the requirements.txt file.
+
+Hardware Environment To achieve optimal performance, TensorDL-MPC toolbox recommends the following hardware configuration:
+
+- **Processor**: Intel Core i7 or higher CPU with multi-core and high clock frequency.
+- **Memory**: At least 8GB RAM, recommended 16GB or higher to support complex model training.
+- **Storage**: SSD hard drive with at least 256GB of available storage space to ensure sufficient read-write speed and storage capacity.
+- **Graphics Processor**: Recommended to use NVIDIA series graphics cards with at least 4GB of memory, supporting CUDA and cuDNN to accelerate deep learning model training.
+
+# 2. Installation Guide
 
 This guide walks you through the process of installing the DL_MPC library.
 
