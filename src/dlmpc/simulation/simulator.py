@@ -1,6 +1,6 @@
 
 
-def SimSISO1():
+def SimSISO1(noise_amplitude=1):
     import numpy as np
     import os
     import sys
@@ -10,7 +10,7 @@ def SimSISO1():
     # 初始化系统状态
     initial_state = np.array([1, 1.2, 0.8])  # 初始状态可以自定义，y[0]，y[1]
     initial_input = np.array([0, 0.1, 0.2])  # 初始状态可以自定义，u[0],u[1]
-    simulation = SISO1.SystemPlant(initial_state, initial_input, noise_amplitude=1, sine_wave=False)  # 信号生成方式
+    simulation = SISO1.SystemPlant(initial_state, initial_input, noise_amplitude, sine_wave=False)  # 信号生成方式
     return simulation
 
 
